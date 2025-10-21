@@ -20,11 +20,57 @@ modules:
   - type: dnf
     repos:
       copr:
-        - atim/starship
+        - zeno/scrcpy
+        - scottames/ghostty
+        - shdwchn10/AllTheTools
+        - alternateved/keyd
+        - lihaohong/yazi
+        - bieszczaders/kernel-cachyos
+      files:
+        - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
     install:
       packages:
-        - micro
-        - starship
+        - podman-remote
+        - podman-docker
+        - distrobox
+        - policycoreutils-python-utils
+        - mpv
+        - nnn
+        - dmtcp
+        - libinput-utils
+        - openssl-devel
+        - thinkfan
+        - lm_sensors
+        - hashcat
+        - stress
+        - cargo
+        - poppler
+        - fd-find
+        - yazi
+        - cmake
+        - meson
+        - gcc-c++
+        - gcc
+        - igt-gpu-tools
+        - vkmark
+        - vulkan-tools
+        - uv
+        - ghostty
+        - sdrpp
+        - zoxide
+        - kernel-tools
+        - tailscale
+        - bat
+        - eza
+        - zsh
+        - msr-tools
+        - topgrade
+        - powertop
+        - adw-gtk3-theme
+        - rapid-photo-downloader
+        - rtl-sdr
+        - gqrx
+        - sdrangel
     remove:
       packages:
         # example: removing firefox (in favor of the flatpak)
@@ -37,9 +83,11 @@ modules:
       - notify: true # Send notification after install/uninstall is finished (true/false)
         scope: system
         # If no repo information is specified, Flathub will be used by default
-        install: # system flatpaks we want all users to have and not remove
-          - org.mozilla.firefox
-          - org.gnome.Loupe
+        install: [] # system flatpaks we want all users to have and not remove
       - scope: user # Also add Flathub user repo, but no user packages
 
+  # - type: script
+  #   snippets:
+  #     - "rm /usr/share/backgrounds/gnome/pride*"
+  #     - "rm /usr/share/backgrounds/gnome/progress*"
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
